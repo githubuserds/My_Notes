@@ -1,9 +1,12 @@
+<!-- log in automatic -->
 <?php
-     session_start();
+// Initialization of sessions
+session_start();
 
-     if (isset($_SESSION['nameUser'], $_SESSION['passwordUser'])) {
-          header('location: modules/dashboard.php');
-     }
+// validating session to log in automatic
+if (isset($_SESSION['nameUser'], $_SESSION['passwordUser'])) {
+     header('location: modules/dashboard.php');
+}
 ?>
 
 <!DOCTYPE html>
