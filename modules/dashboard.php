@@ -1,24 +1,19 @@
+<!-- URL restriction -->
 <?php
 
+// Include Connection
 include '../php/connection.php';
 
+// Initialization of the sessions
 session_start();
 
+// restricting url if not exit a session
 $nameUser = $_SESSION['nameUser'];
 $passwordUser = $_SESSION['passwordUser'];
 
-$queryId = mysqli_query($conn, "SELECT * FROM list_users WHERE nameUser = '$nameUser'");
-
-$row = mysqli_fetch_array($queryId);
-
-$idGet = $row['idUser'];
-
-
 if (!isset($nameUser, $passwordUser)) {
-     
      header('location: ../index.php');
      session_destroy();
-
      die();
 }
 ?>
@@ -72,6 +67,14 @@ if (!isset($nameUser, $passwordUser)) {
           <div class="row">
                <?php
 
+              // Getting Id User
+               $queryId = mysqli_query($conn, "SELECT * FROM list_users WHERE nameUser = '$nameUser'");
+
+               $row = mysqli_fetch_array($queryId);
+
+               $idGet = $row['idUser'];
+
+               // data viewer
                $query = "SELECT * FROM list_notes WHERE idUser = '$idGet'";
 
                $results = mysqli_query($conn, $query);
