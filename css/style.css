@@ -1,0 +1,27 @@
+/* Config Root Browser */
+* {
+  font-family: "Comfortaa", sans-serif;
+  --background-page: #00cede;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Styles Body */
+body {
+  background-color: var(--background-page);
+}
+
+/* Styles tag "a" */
+a {
+  text-decoration: none;
+}
+
+.a_hover:hover {
+  text-decoration: underline;
+}
+
+/* Style the "div" separators */
+.separator_edge {
+  border-bottom: 1px solid #cccccc !important;
+}
